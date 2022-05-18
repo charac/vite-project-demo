@@ -1,0 +1,70 @@
+:root {
+  --bg-contrast: #ffffff;
+  --color-default: rgb(51, 54, 57); //文本默认颜色
+  --color-light: #797675; //浅色调文本
+  --color-title: rgb(34, 33, 33); //文本默认颜色
+  --bg-primary: #ffffff; // 左侧菜单等颜色
+  --bg-minor: #f1f5ff; // 主要部分颜色
+  --font-color-light: #777c88; // 左侧/网站 浅色调字体
+  --bg-hover: #f1f5ff; // 默认hover背景色
+  --bg-active: #e0e8f9; // 默认active背景色
+  --color-primary: #4ba9ff; // 文字主题色
+  --color-primary-active: #279bfe; // 文字主题色
+  --a-color: #2c98f9; // a标签颜色
+  --a-color-hover: #0a7be2; // a标签hover
+  --icon-color: #cccccc; // 图标color
+  --border-bg-active: rgba(0, 0, 0, .1); //边框阴影
+  --hr-bg: #eeeeee; // hr颜色
+  --webkit-scrollbar-thumb: rgba(189, 189, 189, 0.5); // 滑块颜色
+  --nav-bar-shadow: rgba(57, 66, 60, 0.2); // 左侧菜单阴影
+  --tab-bar-shadow: rgba(78, 87, 79, 0.1); // 顶部菜单阴影
+  --color-disappear: rgba(0, 0, 0, .16); //非常浅的颜色
+  --m-btn-border: rgba(193, 191, 191, 0.69); // 自定义按钮边框颜色
+  --m-btn-color: rgb(79, 77, 77); // 自定义按钮字体颜色
+  --m-btn-dot: rgb(113, 109, 109); // 自定义按钮点颜色
+  --bg-layer: rgba(255, 255, 255, .9); // 公司项目遮罩层背景颜色
+  --md-top-bg: #F3F5F6; //md顶部背景色
+  --md-line-bg: #E8F2FF; //md当前选中行背景色
+  --toolbar-item-active-hover: #e8e8e8; //顶部导航栏选中样式
+  --md-pre-wrapper-bg: #f8fafc; // 代码块背景颜色
+  --md-hr-bg: #ddd; // md中间的分割线
+  --md-box-bg: rgba(28, 31, 33, 0.15); // md最外层盒子阴影
+  --hr-color-char: #E5E5E5; //聊天页面分割线
+  --char-cus-card: #f5f5f5; //聊天页面单个卡片背景色
+  --char-cus-card-bg-hover: #eaffee; //聊天页面单个卡片选中背景色
+}
+
+:root[theme='dark'] {
+  --bg-contrast: #000000;
+  --color-default: rgba(255, 255, 255, 0.75);
+  --color-light: #797675;
+  --color-title: rgba(255, 255, 255, 0.85);
+  --bg-primary: #18181C;
+  --bg-minor: #22242c;
+  --font-color-light: #d8d8d8;
+  --bg-hover: #222228;
+  --bg-active: rgba(255, 255, 255, 0.07);
+  --color-primary: #7FE7C4;
+  --color-primary-active: #65e8b0;
+  --a-color: #04d220;
+  --a-color-hover: #029a02;
+  --icon-color: #757575;
+  --border-bg-active: rgba(255, 255, 255, .2);
+  --hr-bg: #363636;
+  --nav-bar-shadow: rgba(219, 221, 219, 0.2);
+  --tab-bar-shadow: rgba(212, 215, 212, 0.1);
+  --color-disappear: rgba(255, 255, 255, .15);
+  --m-btn-border: rgba(216, 216, 216, 0.7);
+  --m-btn-color: rgb(211, 208, 208);
+  --m-btn-dot: rgb(222, 218, 218);
+  --bg-layer: rgba(210, 210, 210, 0.7);
+  --md-top-bg: rgb(15, 15, 15);
+  --md-line-bg: #0f0e0e;
+  --toolbar-item-active-hover: rgba(0, 0, 0, .8);
+  --md-pre-wrapper-bg: #060606;
+  --md-hr-bg: #232323;
+  --md-box-bg: rgba(227, 224, 222, 0.1);
+  --hr-color-char: #515151;
+  --char-cus-card: #161619;
+  --char-cus-card-bg-hover: #002805;
+}

@@ -1,0 +1,18 @@
+# eslint 忽略检查 (根据项目需要自行添加)
+*.sh
+node_modules
+lib
+*.md
+*.scss
+*.woff
+*.ttf
+.vscode
+.idea
+dist
+mock
+public
+bin
+build
+config
+index.html
+src/assets
