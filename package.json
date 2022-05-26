@@ -3,8 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite --mode --host development",
-    "serve": "pnpm dev",
+    "dev": "vite --mode development",
     "test": "vite --mode test",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
