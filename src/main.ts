@@ -1,7 +1,7 @@
 /*
  * @since: 2022-05-13 15:51:54
  * @LastAuthor: Do not edit
- * @lastTime: 2022-05-26 17:04:47
+ * @lastTime: 2022-05-27 16:50:30
  * @Author: ltm@xtoneict.com
  * @message: 配置引入
  */
@@ -11,10 +11,9 @@ import store from './store';
 import App from './App.vue';
 import { registerApp } from './global';
 import 'normalize.css/normalize.css';
-import consola from 'consola';
-consola.log(registerApp);
-createApp(App)
-    // .registerApp(app)
-    .use(router)
-    .use(store)
-    .mount('#app');
+console.log(router);
+const app = createApp(App);
+// registerApp(app);
+// app.use(store);
+app.use(router);
+app.mount('#app');

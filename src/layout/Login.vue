@@ -1,23 +1,18 @@
 <!--
  * @since: 2022-05-16 11:34:52
- * @LastAuthor: Please set LastEditors
- * @lastTime: 2022-05-16 18:38:57
+ * @LastAuthor: Do not edit
+ * @lastTime: 2022-05-27 15:58:40
  * @Author: ltm@xtoneict.com
  * @message: 首页登录
 -->
 <template>
   <div>
-    <el-button
-      :icon="Search"
-      circle
-    />
+    <el-button circle>eeeee</el-button>
   </div>
 </template>
 
-<script>
-export default {
-
-}
+<script lang="ts">
+export default {};
 </script>
 
 <style lang="scss" scoped>
