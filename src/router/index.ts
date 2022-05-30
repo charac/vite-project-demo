@@ -1,56 +1,54 @@
 /*
  * @since: 2022-05-16 11:29:39
  * @LastAuthor: Do not edit
- * @lastTime: 2022-05-27 16:56:59
+ * @lastTime: 2022-05-30 11:08:29
  * @Author: ltm@xtoneict.com
  * @message: 路由配置
  */
-import {
-    createRouter,
-    createWebHistory,
-    createWebHashHistory,
-    RouteRecordRaw,
-} from 'vue-router';
-// createWebHistory 方法返回的是 History 模式
-// createWebHashHistory 方法返回的是 Hash 模式
+import router from '@/router/router';
+import NProgress from '@/config/nprogress';
+import { HOME_URL } from '@/config/config';
+// import { AuthStore } from "@/store/modules/auth";
+// import { GlobalStore } from "@/store";
+// import { AxiosCanceler } from "@/api/helper/axiosCancel";
 
-// 仅做示例，根据业务修改路径等
-const Login = () => import('@/view/login/index.vue');
-import HelloWorld from '@/components/HelloWorld.vue';
+// const axiosCanceler = new AxiosCanceler();
 
-const routes: Array<RouteRecordRaw> = [
-    {
-        path: '/',
-        redirect: { name: 'login' },
-    },
-    // {
-    //     path: '/',
-    //     name: 'HelloWorld',
-    //     component: HelloWorld,
-    // },
-    {
+// * 路由拦截 beforeEach
+router.beforeEach((to, from, next) => {
+    NProgress.start();
+    // * 在跳转路由之前，清除所有的请求
+    // axiosCanceler.removeAllPending();
+
+    // * 判断当前路由是否需要访问权限
+    if (!to.matched.some((record) => record.meta.requiresAuth)) return next();
+
+    // * 判断是否有Token
+    // const globalStore = GlobalStore();
+    // if (!globalStore.token) {
+    next({
         path: '/login',
-        component: Login,
-        name: 'login',
-        meta: {
-            title: '登录页',
-        },
-    },
-    // {
-    //     // 找不到路由重定向到404页面
-    //     path: '/:pathMatch(.*)',
-    //     redirect: { name: '404' },
-    // },
-];
-const router = createRouter({
-    history: createWebHashHistory(),
-    routes: routes as RouteRecordRaw[],
-    strict: false,
-    // 刷新时，滚动条位置还原
-    scrollBehavior: () => ({ left: 0, top: 0 }),
+    });
+    NProgress.done();
+    return;
+    // }
+
+    // const authStore = AuthStore();
+    // // * Dynamic Router(动态路由，根据后端返回的菜单数据生成的一维数组)
+    // const dynamicRouter = authStore.dynamicRouter;
+    // // * Static Router(静态路由，必须配置首页地址，否则不能进首页获取菜单、按钮权限等数据)，获取数据的时候会loading，所有配置首页地址也没问题
+    // const staticRouter = [HOME_URL, "/403"];
+    // const routerList = dynamicRouter.concat(staticRouter);
+
+    // // * 如果访问的地址没有在路由表中重定向到403页面
+    // if (routerList.indexOf(to.path) !== -1) return next();
+    // next({
+    // 	path: "/403"
+    // });
 });
 
-// 前置路由
-router.beforeEach((to, from, next) => {});
+router.afterEach(() => {
+    NProgress.done();
+});
 
 export default router;
