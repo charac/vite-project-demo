@@ -1,13 +1,15 @@
 /*
  * @since: 2022-05-13 15:51:54
  * @LastAuthor: Do not edit
- * @lastTime: 2022-05-27 16:36:10
+ * @lastTime: 2022-05-31 11:29:41
  * @Author: ltm@xtoneict.com
  * @message:
  */
 import { UserConfig, ConfigEnv, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import path from 'path';
+// 打包后查看资源占比
+import { visualizer } from 'rollup-plugin-visualizer';
 // @ts-ignore
 import { createStyleImportPlugin } from 'vite-plugin-style-import';
 //使用 vite-plugin-compression 可以 gzip 或 brotli 的方式来压缩资源，这一步需要服务器端的配合，vite 只能帮你打包出 .gz 文件。此插件使用简单，你甚至无需配置参数，引入即可。
@@ -49,10 +51,26 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
                     },
                 ],
             }),
+            visualizer({
+                // 打包后自动打开分析报告
+                open: true,
+            }), // 打包资源占比
+            // viteCompression({
+            //   verbose: true,
+            //   disable: false, // 不禁用压缩
+            //   deleteOriginFile: false, // 压缩后是否删除原文件
+            //   threshold: 10240, // 压缩前最小文件大小
+            //   algorithm: 'gzip', // 压缩算法
+            //   ext: '.gz' // 文件类型
+            // })
         ],
+        optimizeDeps: {
+            include: ['pinia', 'vue-i18n'],
+            // exclude: ["@pureadmin/theme/dist/browser-utils"]
+        },
         // 本地运行配置，以及反向代理配置
         server: {
-            open: true,
+            // open: true,
             port: Number(env.VITE_APP_PORT), //指定开发服务器端口
             //   host: "0.0.0.0",//指定服务器应该监听哪个 IP 地址。 如果将此设置为 0.0.0.0 或者 true 将监听所有地址，包括局域网和公网地址。
             //   strictPort: false, //设为true时端口被占用则直接退出，不会尝试下一个可用端口
