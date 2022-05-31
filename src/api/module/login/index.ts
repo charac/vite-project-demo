@@ -1,24 +1,21 @@
 /*
  * @since: 2022-05-16 16:45:18
- * @LastAuthor: Please set LastEditors
- * @lastTime: 2022-05-16 18:00:09
+ * @LastAuthor: Do not edit
+ * @lastTime: 2022-05-31 16:40:59
  * @Author: ltm@xtoneict.com
- * @message:
+ * @message: 用户登录模块
  */
 import cvRequest from '@/service/index';
-import { IResponseType, ILogin } from './type';
+import { Login } from '../interface/index';
 
 /**
- * 查询队列内容
- * @param query 队列页数、每页条数、队列名称
+ *
+ * @name login 用户登录接口
  */
-export const login = (username: string, password: string) => {
-    return request<IResponseType<ILogin>>({
+export const login = (data: Login.ReqLoginForm) => {
+    return request<Login.ResLogin>({
         url: '/api/auth/login',
         method: 'post',
-        data: {
-            username,
-            password,
-        },
+        data,
     });
 };

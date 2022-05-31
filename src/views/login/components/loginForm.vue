@@ -1,7 +1,7 @@
 <!--
  * @since: 2022-05-30 16:02:56
  * @LastAuthor: Do not edit
- * @lastTime: 2022-05-31 14:49:14
+ * @lastTime: 2022-05-31 16:43:54
  * @Author: ltm@xtoneict.com
  * @message: 登录界面
 -->
@@ -63,7 +63,7 @@
 <script setup lang="ts">
 import { ref, reactive, inject } from 'vue';
 import { useRouter } from 'vue-router';
-import { Login } from '@/api/interface';
+import { login } from '@/api/interface';
 import { InjectProps } from '../interface/index';
 import { CircleClose, UserFilled } from '@element-plus/icons-vue';
 import type { ElForm } from 'element-plus';
